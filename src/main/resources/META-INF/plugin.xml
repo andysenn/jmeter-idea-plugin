@@ -1,0 +1,47 @@
+<idea-plugin url="https://github.com/andysenn/jmeter-idea-plugin">
+	<name>JMeter Support</name>
+	<description>Build and execute JMeter tests in IntelliJ IDEA</description>
+	<version>1.6.1</version>
+	<vendor>Andy Senn</vendor>
+	<category>Tools Integration</category>
+
+	<!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+	<idea-version since-build="133.696"/>
+
+	<application-components>
+		<!-- Add your application components here -->
+	</application-components>
+
+	<project-components>
+		<!-- Add your project components here -->
+	</project-components>
+
+	<actions>
+		<action id="CreateJmeterFile" class="idea.plugin.jmeter.actions.CreateJmeterFileAction" text="JMeter File" description="Create new JMeter file">
+			<add-to-group group-id="NewGroup" anchor="last"/>
+		</action>
+	</actions>
+
+	<extensions defaultExtensionNs="com.intellij">
+		<fileTypeFactory implementation="idea.plugin.jmeter.JmeterFileTypeFactory"/>
+		<projectConfigurable instance="idea.plugin.jmeter.settings.JmeterSettingsConfigurable"/>
+		<configurationType implementation="idea.plugin.jmeter.run.JmeterConfigurationType"/>
+		<programRunner implementation="idea.plugin.jmeter.run.JmeterProgramRunner"/>
+		<runConfigurationProducer implementation="idea.plugin.jmeter.run.JmeterRunConfigurationProducer"/>
+		<syntaxHighlighter key="JMeter" implementationClass="com.intellij.ide.highlighter.XmlFileHighlighter"/>
+	</extensions>
+
+	<change-notes>
+		<![CDATA[
+		<p>
+			Forked from https://github.com/ponomandr/jmeter-idea-plugin
+		</p>
+		<h4>Changes in 1.6.1</h4>
+		<ul>
+			<li>Forked from https://github.com/ponomandr/jmeter-idea-plugin</li>
+			<li>Tests execute headlessly within the IDE by default</li>
+		</ul>
+		]]>
+	</change-notes>
+
+</idea-plugin>
